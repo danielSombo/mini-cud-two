@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"
 
-const API_URL = "https://mini-cud-two-ucdc.vercel.app/api/contacts";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -18,7 +18,7 @@ function App() {
 
   const handleAdd = async () => {
     if (newContact.name && newContact.email) {
-      const res = await axios.post(API_URL, newContact);
+      const res = await axios.post(`${API_URL}/api/contacts`, newContact);
       setContacts([...contacts, res.data]);
       setNewContact({ name: "", email: "", dob: "", phone: "" });
     }
