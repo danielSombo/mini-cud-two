@@ -7,12 +7,12 @@ const morgan = require("morgan");
 
 const app = express();
 app.use(cors({
-    origin: 'https://mini-cud-two-17vu.vercel.app/',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // autoriser l'envoi des cookies
-    optionsSuccessStatus: 204,
-    allowedHeaders: 'Content-Type,Authorization',
+    origin: ['https://mini-cud-two-17vu.vercel.app', 'http://localhost:5173'], // Ajoute localhost pour tests locaux
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(morgan("combined"))
