@@ -6,7 +6,13 @@ const contactRoutes = require("./routes/ContactRoutes");
 const morgan = require("morgan");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://mini-cud-two-17vu.vercel.app/',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // autoriser l'envoi des cookies
+    optionsSuccessStatus: 204,
+    allowedHeaders: 'Content-Type,Authorization',
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(morgan("combined"))
