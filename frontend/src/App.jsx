@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "https://mini-cud-two-ucdc.vercel.app";
+const API_URL = "https://mini-cud-two-l69h.vercel.app";
 
 function App() {
   const [contacts, setContacts] = useState([]);
